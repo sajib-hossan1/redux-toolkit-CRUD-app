@@ -1,4 +1,8 @@
 import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { addStudent } from '../../redux/features/infoSlice';
 
 const AddContact = () => {
     const [firstName, setFirstName] = useState("");
@@ -7,8 +11,38 @@ const AddContact = () => {
     const [phone, setPhone] = useState("");
     const [address, setAddress] = useState("");
 
+    const dispatch = useDispatch();
+
+    const navigation = useNavigate();
+
+    const students = useSelector(state => state.student.students);
+
+    const checkEmail = students.find(student => student.email === email && email);
+    const checkPhone = students.find(student => student.phone === phone);
+
     const handleSubmit = (e) => {
         e.preventDefault();
+        const data = {
+            id : students.length + 1,
+            firstName,
+            lastName,
+            email,
+            phone,
+            address
+        };
+
+        if(!firstName || !lastName || !email || !phone || !address){
+            return toast.warning("Please Fillout All Fields")
+        }
+        if(checkEmail){
+            return toast.warning("This Email Is Already Exists")
+        }
+        if(checkPhone){
+            return toast.warning("This Phone Number Is Already Exists")
+        }
+        dispatch(addStudent(data));
+        toast.success("A Contact Added Successfully");
+        navigation('/');
     }
     
     return (

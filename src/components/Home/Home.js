@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import InfoItem from '../InfoItem/InfoItem';
 
 const Home = () => {
-
     const students = useSelector(state => state.student.students);
     
     return (

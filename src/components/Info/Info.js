@@ -22,13 +22,13 @@ const Info = () => {
 
     return (
         <div>
-            <div className="col-lg-4 col-md-6 col-sm-12 p-4">
-                <div className="card shadow mx-auto" style={{width: "18rem"}}>
-                    <div className="card-body">
-                        <h5 className="card-title">{firstName} {lastName}</h5>
-                        <h6 className="card-subtitle mb-2 text-muted">{email}</h6>
-                        <p className="card-text">{phone}</p>
-                        <p className="card-text">{address}</p>
+            <div className="col-md-10 mx-auto p-4">
+                <div className="card shadow mx-auto">
+                    <div className="card-body p-5">
+                        <h2 className="card-title">{firstName} {lastName}</h2>
+                        <h3 className="card-subtitle mb-2 text-muted">{email}</h3>
+                        <h4 className="card-text">{phone}</h4>
+                        <h5 className="card-text">{address}</h5>
                     </div>
                 </div>
             </div>

@@ -6,11 +6,15 @@ import Navbar from "./components/Navbar/Navbar";
 import Info from "./components/Info/Info";
 import AddContact from "./components/AddContact/AddContact";
 import EditInfo from "./EditInfo/EditInfo";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
+        <ToastContainer></ToastContainer>
         <Navbar></Navbar>
         <Routes>
             <Route exact path='/' element={<Home></Home>} />
