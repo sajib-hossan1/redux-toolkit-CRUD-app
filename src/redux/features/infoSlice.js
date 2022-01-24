@@ -129,9 +129,12 @@ const infoSlice = createSlice({
       editStudent : (state, action) => {
           state.students = state.students.map(el => el.id === action.payload.id ? action.payload : el);
       },
+      deleteStudent : (state, action) => {
+          state.students = state.students.filter(el => el.id !== action.payload);
+      }
     }
 })
 
-export const {getStudent, clearStudent, addStudent, editStudent} = infoSlice.actions;
+export const {getStudent, clearStudent, addStudent, editStudent, deleteStudent} = infoSlice.actions;
 
 export default infoSlice.reducer;
